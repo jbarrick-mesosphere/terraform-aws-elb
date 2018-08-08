@@ -3,7 +3,7 @@ variable "cluster_name" {
 }
 
 variable "tags" {
-  description = "Add special tags to the resources created by this module"
+  description = "Custom tags added to the resources created by this module"
   type        = "map"
   default     = {}
 }
@@ -25,22 +25,22 @@ variable "instances" {
 }
 
 variable "https_acm_cert_arn" {
-  description = "Specify an ACM certifacte to be used for the external masters load balancer"
+  description = "ACM certifacte to be used for the external masters load balancer"
   default     = ""
 }
 
 variable "elb_name_format" {
-  description = "Specify a printf style format for naming the ELB. It get stripped down to 32 characters. (input cluster_name)"
+  description = "printf style format for naming the ELB. Gets truncated to 32 characters. (input cluster_name)"
   default     = "%s-load-balancer"
 }
 
 variable "listener" {
-  description = "Specify a list of listeners. By default HTTP and HTTPS are set. If set it overwrites the default listeners."
+  description = "List of listeners. By default HTTP and HTTPS are set. If set it overrides the default listeners."
   default     = []
 }
 
 variable "additional_listener" {
-  description = "Specify a list of listeners. That are set in addition to the default listeners."
+  description = "Additional list of listeners"
   default     = []
 }
 
@@ -50,7 +50,7 @@ variable "internal" {
 }
 
 variable "health_check" {
-  description = "Specify a health check the ELB should use"
+  description = "Health check the ELB should use"
   type        = "map"
 
   default = {
@@ -68,7 +68,7 @@ variable "cross_zone_load_balancing" {
 }
 
 variable "idle_timeout" {
-  description = "The time in seconds that the connection is allowed to be idle."
+  description = "Time in seconds the connection is allowed to be idle"
   default     = 60
 }
 
