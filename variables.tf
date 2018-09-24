@@ -31,7 +31,7 @@ variable "https_acm_cert_arn" {
 
 variable "elb_name_format" {
   description = "printf style format for naming the ELB. Gets truncated to 32 characters. (input cluster_name)"
-  default     = "%s-load-balancer"
+  default     = "load-balancer-%s"
 }
 
 variable "listener" {
