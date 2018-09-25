@@ -1,15 +1,15 @@
 variable "cluster_name" {
-  description = "Specify the cluster name all resources get named and tagged with"
+  description = "Name of the DC/OS cluster"
 }
 
 variable "tags" {
-  description = "Custom tags added to the resources created by this module"
+  description = "Add custom tags to all resources"
   type        = "map"
   default     = {}
 }
 
 variable "subnet_ids" {
-  description = "Subnets to spawn the instances in. The module tries to distribute the instances"
+  description = "List of subnet IDs created in this network"
   type        = "list"
 }
 
@@ -25,12 +25,12 @@ variable "instances" {
 }
 
 variable "https_acm_cert_arn" {
-  description = "ACM certifacte to be used for the external masters load balancer"
+  description = "ACM certifacte to be used."
   default     = ""
 }
 
 variable "elb_name_format" {
-  description = "printf style format for naming the ELB. Gets truncated to 32 characters. (input cluster_name)"
+  description = "Printf style format for naming the ELB. Gets truncated to 32 characters. (input cluster_name)"
   default     = "load-balancer-%s"
 }
 
@@ -40,7 +40,7 @@ variable "listener" {
 }
 
 variable "additional_listener" {
-  description = "Additional list of listeners"
+  description = "List of additional listeners"
   default     = []
 }
 
@@ -50,7 +50,7 @@ variable "internal" {
 }
 
 variable "health_check" {
-  description = "Health check the ELB should use"
+  description = "Health check definition"
   type        = "map"
 
   default = {
