@@ -28,20 +28,20 @@ module "dcos-elbs" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| additional_listener | Additional list of listeners | string | `<list>` | no |
-| cluster_name | Specify the cluster name all resources get named and tagged with | string | - | yes |
+| additional_listener | List of additional listeners | string | `<list>` | no |
+| cluster_name | Name of the DC/OS cluster | string | - | yes |
 | connection_draining | Enable connection draining | string | `false` | no |
 | cross_zone_load_balancing | Enable cross-zone load balancing | string | `true` | no |
-| elb_name_format | printf style format for naming the ELB. Gets truncated to 32 characters. (input cluster_name) | string | `%s-load-balancer` | no |
-| health_check | Health check the ELB should use | map | `<map>` | no |
-| https_acm_cert_arn | ACM certifacte to be used for the external masters load balancer | string | `` | no |
+| elb_name_format | Printf style format for naming the ELB. Gets truncated to 32 characters. (input cluster_name) | string | `load-balancer-%s` | no |
+| health_check | Health check definition. | map | `<map>` | no |
+| https_acm_cert_arn | ACM certifacte to be used. | string | `` | no |
 | idle_timeout | Time in seconds the connection is allowed to be idle | string | `60` | no |
 | instances | List of instance IDs | list | - | yes |
 | internal | This ELB is internal only | string | `false` | no |
 | listener | List of listeners. By default HTTP and HTTPS are set. If set it overrides the default listeners. | string | `<list>` | no |
 | security_groups | Security Group IDs to use | list | `<list>` | no |
-| subnet_ids | Subnets to spawn the instances in. The module tries to distribute the instances | list | - | yes |
-| tags | Custom tags added to the resources created by this module | map | `<map>` | no |
+| subnet_ids | List of subnet IDs created in this network | list | - | yes |
+| tags | Add custom tags to all resources | map | `<map>` | no |
 
 ## Outputs
 
