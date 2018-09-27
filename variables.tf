@@ -50,7 +50,7 @@ variable "internal" {
 }
 
 variable "health_check" {
-  description = "Health check definition"
+  description = "Health check definition."
   type        = "map"
 
   default = {
