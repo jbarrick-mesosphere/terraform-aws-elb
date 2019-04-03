@@ -61,6 +61,7 @@ resource "aws_elb" "loadbalancer" {
   cross_zone_load_balancing = "${var.cross_zone_load_balancing}"
   idle_timeout              = "${var.idle_timeout}"
   connection_draining       = "${var.connection_draining}"
+  wait_for_ready_timeout    = "10m"
 
   tags = "${merge(var.tags, map("Name", format(var.elb_name_format,var.cluster_name),
                                 "Cluster", var.cluster_name))}"
